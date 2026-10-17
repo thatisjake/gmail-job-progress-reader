@@ -1,5 +1,7 @@
 # Gmail Job Progress Reader
 
+[![Go CI](https://github.com/thatisjake/gmail-job-progress-reader/actions/workflows/go.yml/badge.svg)](https://github.com/thatisjake/gmail-job-progress-reader/actions/workflows/go.yml)
+
 A read-only Go CLI that searches Gmail INBOX messages, including read messages,
 for job-related keywords and classifies candidates with Google's Gemini API.
 Offers, interview invitations/scheduling, and explicit next-round advancement
@@ -23,8 +25,8 @@ deleting it from the latest revision does not remove it from Git history.
 
 ## Run
 
-Run these commands from the project directory. Use `go run .`, not
-`go run quickstart.go`, because the program spans multiple source files.
+Run these commands from the project directory. The program spans multiple
+source files, so run it as a package with `go run .`.
 
 ```sh
 go run . -help
@@ -108,9 +110,10 @@ remain advisory and should be reviewed. Do not log raw email bodies or keys.
 ## Verify
 
 Automated tests use local HTTP servers, not Gmail credentials or paid APIs.
+GitHub Actions runs these checks on pushes and pull requests.
 
 ```powershell
-gofmt -w quickstart.go gmail.go scan.go classifier.go gmail_test.go classifier_test.go
+gofmt -w main.go gmail.go scan.go classifier.go gmail_test.go classifier_test.go
 go test ./... -timeout 30s
 go vet ./...
 go build ./...
@@ -120,3 +123,7 @@ Before relying on results, evaluate a small authorized live scan against known
 offers, interview invitations, next rounds, acknowledgments, rejections,
 generic outreach, and an old offer quoted in a newer rejection. Mocked tests
 verify parsing and pipeline behavior, not Gemini's real classification accuracy.
+
+## License
+
+This project is licensed under the MIT License. See [LICENSE](./LICENSE).

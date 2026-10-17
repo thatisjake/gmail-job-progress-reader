@@ -5,5 +5,7 @@
 
 /quickstart
 /quickstart.exe
+/gmail-job-progress-reader
+/gmail-job-progress-reader.exe
 *.test
 coverage.out
