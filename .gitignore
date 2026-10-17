@@ -1,0 +1,9 @@
+/credentials.json
+/token.json
+/.env
+/.env.*
+
+/quickstart
+/quickstart.exe
+*.test
+coverage.out
